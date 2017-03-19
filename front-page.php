@@ -25,26 +25,20 @@ get_header(); ?>
 			foreach ( $cats as $cat ):
 				$acf_cat_id = 'category_'.$cat->term_id;
 				$acf_cat    = get_field( 'catimg', $acf_cat_id );
-
+				if ( !empty($acf_cat) ):
 				?>
-			<article class='swiper-slide'>
-				<div class="entry-header">
-					<div class="entry-image">
-						<a href="<?php echo get_category_link($cat->term_id); ?>" rel="bookmark">
-							<?php echo wp_get_attachment_image($acf_cat, 'full'); ?>
-						</a>
-					</div>
-					<?php
-					/*
-					if ( is_single() ) :
-						the_title( '<h1 class="entry-title">', '</h1>' );
-					else :
-						the_title( '<h2 class="entry-title">', '</h2>' );
-					endif;
-					*/ ?>
-				</div><!-- .entry-header -->
-			</article><!-- #post-## -->
-			<?php
+					<article class='swiper-slide'>
+						<div class="entry-header">
+							<div class="entry-image">
+								<a href="<?php echo get_category_link($cat->term_id); ?>" rel="bookmark">
+									<?php echo wp_get_attachment_image($acf_cat, 'full'); ?>
+								</a>
+							</div>
+						</div><!-- .entry-header -->
+					</article><!-- #post-## -->
+				<?php
+
+				endif;
 
 			endforeach;
 
