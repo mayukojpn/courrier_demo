@@ -82,17 +82,13 @@ $(function() {
         * ここでURLをクリックする
         */
 				$(this).css('top','100vh');
-				setTimeout(function(){
 					window.location.replace('https://courrier.mayuko.me');
-				}, 500);
 
 
     }
 		if (slide_y < -100){
 			$(this).css('top','-100vh');
-			setTimeout(function(){
 					window.location.replace($(this).attr('data-url'));
-				}, 500);
 
 
 		}
