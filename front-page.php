@@ -19,14 +19,20 @@ get_header(); ?>
 			<div class="swiper-wrapper">
 
 			<?php
+			$monthly_cat_id = get_term_by( 'slug', 'monthly', 'category' );
+			$exclude_cat_id = '';
 
-			$args = [];
+			$args = array(
+				'parent' => $monthly_cat_id
+			);
 
-			$cats = get_categories();
+			$cats = get_categories( $args );
 
 			foreach ( $cats as $cat ):
-				$acf_cat_id = 'category_'.$cat->term_id;
-				$acf_cat    = get_field( 'catimg', $acf_cat_id );
+				$cat_id          = $cat->term_id;
+				$exclude_cat_id .= $cat_id.',';
+				$acf_cat_id      = 'category_'.$cat_id;
+				$acf_cat         = get_field( 'catimg', $acf_cat_id );
 				if ( !empty($acf_cat) ):
 				?>
 					<article class='swiper-slide'>
@@ -45,31 +51,32 @@ get_header(); ?>
 			endforeach;
 
 
-			if ( have_posts() ) :
+			$args = array(
+				'exclude' => $exclude_cat_id;
+			);
 
-				/* Start the Loop */
-				while ( have_posts() ) : the_post();
+			$cats = get_categories( $args );
 
-				if( has_post_thumbnail() ) {
+			foreach ( $cats as $cat ):
+				$cat_id          = $cat->term_id;
+				$acf_cat_id      = 'category_'.$cat_id;
+				$acf_cat         = get_field( 'catimg', $acf_cat_id );
+				if ( !empty($acf_cat) ):
+				?>
+					<article class='swiper-slide'>
+						<div class="entry-header">
+							<div class="entry-image">
+								<a href="<?php echo get_category_link($cat->term_id); ?>" rel="bookmark">
+									<?php echo wp_get_attachment_image($acf_cat, 'full'); ?>
+								</a>
+							</div>
+						</div><!-- .entry-header -->
+					</article><!-- #post-## -->
+				<?php
 
-										/*
-										 * Include the Post-Format-specific template for the content.
-										 * If you want to override this in a child theme, then include a file
-										 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-										 */
-										get_template_part( 'template-parts/content', 'cover' );
-				}
+				endif;
 
-
-				endwhile;
-
-				the_posts_navigation();
-
-			else :
-
-				get_template_part( 'template-parts/content', 'none' );
-
-			endif; ?>
+			endforeach; ?>
 
 			</div>
 		</main><!-- #main -->
