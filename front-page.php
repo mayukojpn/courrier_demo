@@ -24,6 +24,8 @@ get_header(); ?>
 				/* Start the Loop */
 				while ( have_posts() ) : the_post();
 
+				if( !has_post_thumbnail() ) { return; }
+
 					/*
 					 * Include the Post-Format-specific template for the content.
 					 * If you want to override this in a child theme, then include a file
