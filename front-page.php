@@ -19,11 +19,11 @@ get_header(); ?>
 			<div class="swiper-wrapper">
 
 			<?php
-			$monthly_cat_id = get_term_by( 'slug', 'monthly', 'category' );
+			$monthly_cat = get_term_by( 'slug', 'monthly', 'category' );
 			$exclude_cat_id = '';
 
 			$args = array(
-				'parent' => $monthly_cat_id
+				'parent' => $monthly_cat->term_id
 			);
 
 			$cats = get_categories( $args );
@@ -49,7 +49,6 @@ get_header(); ?>
 				endif;
 
 			endforeach;
-
 
 			$args = array(
 				'exclude' => $exclude_cat_id
