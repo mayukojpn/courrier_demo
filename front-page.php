@@ -20,6 +20,8 @@ get_header(); ?>
 
 			<?php
 
+			$args = [];
+
 			$cats = get_categories();
 
 			foreach ( $cats as $cat ):
