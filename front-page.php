@@ -26,7 +26,7 @@ get_header(); ?>
 							$args = array(
 								'parent' => (int)$monthly_cat->term_id
 							);
-				
+
 			}
 
 			$cats = get_categories( $args );
@@ -38,7 +38,7 @@ get_header(); ?>
 				$acf_cat         = get_field( 'catimg', $acf_cat_id );
 				if ( !empty($acf_cat) ):
 				?>
-					<article class='swiper-slide'>
+					<article class='swiper-slide' data-url="<?php echo get_category_link($cat->term_id); ?>">
 						<div class="entry-header">
 							<div class="entry-image">
 								<a href="<?php echo get_category_link($cat->term_id); ?>" rel="bookmark">

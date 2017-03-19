@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'swiper-slide' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'swiper-slide' ); ?> data-url="<?php echo esc_url( get_permalink() ); ?>">
 	<div class="entry-header">
 		<div class="entry-image">
 			<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
