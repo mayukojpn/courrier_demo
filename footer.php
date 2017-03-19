@@ -82,7 +82,9 @@ $(function() {
         * ここでURLをクリックする
         */
 				$(this).css('top','100vh');
+				setTimeout(function(){
 					window.location.replace('https://courrier.mayuko.me');
+				}, 500);
 
 
     }
