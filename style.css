@@ -928,3 +928,11 @@ object {
 
 }
 
+@media screen and (max-width: 782px) {
+
+html[lang=ja] {
+	margin-top: 0 !important;
+}
+
+}
+
