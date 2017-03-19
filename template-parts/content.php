@@ -11,6 +11,11 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
+		<div class="entry-image">
+			<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
+				<?php the_post_thumbnail(); ?>
+			</a>
+		</div>
 		<?php
 		if ( is_single() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
