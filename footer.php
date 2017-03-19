@@ -24,5 +24,13 @@
 
 <?php wp_footer(); ?>
 
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true
+    });
+    </script>
+
+
 </body>
 </html>
