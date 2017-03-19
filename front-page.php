@@ -52,7 +52,7 @@ get_header(); ?>
 
 
 			$args = array(
-				'exclude' => $exclude_cat_id;
+				'exclude' => $exclude_cat_id
 			);
 
 			$cats = get_categories( $args );
