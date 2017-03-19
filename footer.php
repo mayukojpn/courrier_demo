@@ -77,7 +77,7 @@ $(function() {
  * 指を離す
  */
   function TouchLeave( event ) {
-    if (slide_y > 50){
+    if (slide_y > 100){
         /*
         * ここでURLをクリックする
         */
