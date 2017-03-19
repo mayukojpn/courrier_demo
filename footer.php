@@ -63,8 +63,8 @@ $(function() {
     slide_y = pos.y - touch_y;
 
     //マイナスの値をプラスに変更
-    slide_x = Math.sqrt(Math.pow(slide_x,2));
-    slide_y = Math.sqrt(Math.pow(slide_y,2));
+//    slide_x = Math.sqrt(Math.pow(slide_x,2));
+//    slide_y = Math.sqrt(Math.pow(slide_y,2));
 
 
     $("#leave-x").html(pos.x);
@@ -81,9 +81,14 @@ $(function() {
         /*
         * ここでURLをクリックする
         */
-				window.location.replace($(this).attr('data-url'));
+				window.location.replace('https://courrier.mayuko.me');
 
     }
+		if (slide_y < -100){
+			window.location.replace($(this).attr('data-url'));
+
+		}
+
   }
 
 /*
