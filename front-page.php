@@ -21,10 +21,13 @@ get_header(); ?>
 			<?php
 			$monthly_cat = get_term_by( 'slug', 'monthly', 'category' );
 			$exclude_cat_id = '';
+			if ($monthly_cat){
 
-			$args = array(
-				'parent' => $monthly_cat->term_id
-			);
+							$args = array(
+								'parent' => (int)$monthly_cat->term_id
+							);
+				
+			}
 
 			$cats = get_categories( $args );
 
