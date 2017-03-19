@@ -739,6 +739,12 @@ a:active {
 	background: #000;
 }
 
+.swiper-slide .entry-image img {
+	-o-object-fit: contain;
+	   object-fit: contain;
+	height: 100vh;
+}
+
 .swiper-slide .entry-title {
 	position: absolute;
 	bottom: 10vh;

@@ -6,6 +6,10 @@
 	height: 100vh !important;
 	background: #000;
 	.entry-image {
+		img {
+	    object-fit: contain;
+	    height: 100vh;
+		}
 	}
 	.entry-title {
 		position: absolute;
