@@ -11,6 +11,9 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'swiper-slide' ); ?>>
 	<div class="entry-header">
+		<div class="entry-image">
+			<?php the_post_thumbnail(); ?>
+		</div>
 		<?php
 		if ( is_single() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
